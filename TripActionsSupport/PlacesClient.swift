@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class PlacesClient {
 //    https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+Sydney&key=YOUR_API_KEY
@@ -26,18 +27,14 @@ class PlacesClient {
 //    will need to sort by price and rating on the client side
 //    params: ["query": "cheese", "opennow": true, "type": "cafe"]
     
-    func getPlaces(location: String, places: String?, params: [String: Any]?, success: @escaping ([Place]) -> (), failure: @escaping (String, Error) -> ()){
+    func getPlaces(location: String?, places: String?, params: [String: Any]?, success: @escaping ([Place]) -> (), failure: @escaping (String, Error) -> ()){
         
         dataTask?.cancel() // Cancel previous task
         
         let method = "textsearch/json"
-        
-        var textString: String
-        if let places = places {
-            textString = "\(places)+in+\(location)" // Gets specific places at specific location
-        } else {
-            textString = "places+in+\(location)" // Gets all places if user only enters a location
-        }
+        let location = location != nil ? location! : "united states"
+        let places = places != nil ? places! : "places"
+        let textString = "\(places)+in+\(location)"
         let arr = textString.components(separatedBy: " ") // Just in case user entered whitespace
         
         var queryString = "\(Constants.queryFields.textQuery)=\(arr.joined(separator: "+"))&"
@@ -83,6 +80,21 @@ class PlacesClient {
             }
         
     }
+    
+    func getCoordinatesFromString(locationString: String, success: @escaping (CLLocation) -> (), failure: @escaping  (String, Error?) -> ()) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(locationString) { (placemarks, error) in
+            if let placemark = placemarks?[0] {
+                success(placemark.location!)
+            } else {
+                failure("No placemarks found", nil)
+            }
+            if let error = error {
+                failure("Failure to find placemarks with locationString: \(error.localizedDescription)", error)
+            }
+        }
+    }
+    
 }
         
         

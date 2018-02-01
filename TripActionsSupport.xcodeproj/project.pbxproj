@@ -11,6 +11,8 @@
 		F21615112022618300F2E9E6 /* TextSuggestionsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */; };
 		F21615132022624B00F2E9E6 /* TextSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */; };
 		F22BA6332021515E008F5338 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22BA6322021515E008F5338 /* Constants.swift */; };
+		F2617F382022CC8500302280 /* SearchBarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2617F372022CC8500302280 /* SearchBarsView.xib */; };
+		F2617F3A2022CCC400302280 /* SearchBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2617F392022CCC400302280 /* SearchBarsView.swift */; };
 		F2B75A9B2020E29800A0B434 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75A9A2020E29800A0B434 /* AppDelegate.swift */; };
 		F2B75AA02020E29800A0B434 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B75A9E2020E29800A0B434 /* Main.storyboard */; };
 		F2B75AA22020E29800A0B434 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B75AA12020E29800A0B434 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSuggestionsTableVC.swift; sourceTree = "<group>"; };
 		F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSuggestionCell.swift; sourceTree = "<group>"; };
 		F22BA6322021515E008F5338 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F2617F372022CC8500302280 /* SearchBarsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarsView.xib; sourceTree = "<group>"; };
+		F2617F392022CCC400302280 /* SearchBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarsView.swift; sourceTree = "<group>"; };
 		F2B75A972020E29700A0B434 /* TripActionsSupport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripActionsSupport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75A9A2020E29800A0B434 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2B75A9F2020E29800A0B434 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 				F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */,
 				F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */,
 				F2B75A9E2020E29800A0B434 /* Main.storyboard */,
+				F2617F372022CC8500302280 /* SearchBarsView.xib */,
+				F2617F392022CCC400302280 /* SearchBarsView.swift */,
 				F2B75AA12020E29800A0B434 /* Assets.xcassets */,
 				F2B75AA32020E29800A0B434 /* LaunchScreen.storyboard */,
 				F2B75AA62020E29800A0B434 /* Info.plist */,
@@ -247,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2617F382022CC8500302280 /* SearchBarsView.xib in Resources */,
 				F2B75AA52020E29800A0B434 /* LaunchScreen.storyboard in Resources */,
 				F2B75AA22020E29800A0B434 /* Assets.xcassets in Resources */,
 				F2B75AA02020E29800A0B434 /* Main.storyboard in Resources */,
@@ -274,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2617F3A2022CCC400302280 /* SearchBarsView.swift in Sources */,
 				F22BA6332021515E008F5338 /* Constants.swift in Sources */,
 				F216150F2022413C00F2E9E6 /* MapVC.swift in Sources */,
 				F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */,

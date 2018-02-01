@@ -7,26 +7,28 @@
 //
 
 import UIKit
+import MapKit
 
-class TextSuggestionsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class TextSuggestionsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var matchingItems:[MKMapItem] = []
+    var mapView: MKMapView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        MKSearchCompletionFilterType.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+   
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,9 +43,24 @@ class TextSuggestionsTableVC: UIViewController, UITableViewDelegate, UITableView
         return 10
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
+//        filtered = data.filter({ (text) -> Bool in
+//            let tmp: NSString = text
+//            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+//            return range.location != NSNotFound
+//        })
+//        if(filtered.count == 0){
+//            searchActive = false;
+//        } else {
+//            searchActive = true;
+//        }
+        self.tableView.reloadData()
     }
+    
+//    func updateSearchResults(for searchController: UISearchController) {
+//
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
