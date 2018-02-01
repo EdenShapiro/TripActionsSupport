@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F216150F2022413C00F2E9E6 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F216150E2022413C00F2E9E6 /* MapVC.swift */; };
+		F21615112022618300F2E9E6 /* TextSuggestionsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */; };
+		F21615132022624B00F2E9E6 /* TextSuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */; };
+		F22BA6332021515E008F5338 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22BA6322021515E008F5338 /* Constants.swift */; };
 		F2B75A9B2020E29800A0B434 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75A9A2020E29800A0B434 /* AppDelegate.swift */; };
-		F2B75A9D2020E29800A0B434 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75A9C2020E29800A0B434 /* ViewController.swift */; };
 		F2B75AA02020E29800A0B434 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B75A9E2020E29800A0B434 /* Main.storyboard */; };
 		F2B75AA22020E29800A0B434 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B75AA12020E29800A0B434 /* Assets.xcassets */; };
 		F2B75AA52020E29800A0B434 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B75AA32020E29800A0B434 /* LaunchScreen.storyboard */; };
 		F2B75AB02020E29800A0B434 /* TripActionsSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75AAF2020E29800A0B434 /* TripActionsSupportTests.swift */; };
 		F2B75ABB2020E29800A0B434 /* TripActionsSupportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ABA2020E29800A0B434 /* TripActionsSupportUITests.swift */; };
+		F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75AC82020E5B800A0B434 /* PlacesClient.swift */; };
+		F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ACA2020EA8E00A0B434 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F216150E2022413C00F2E9E6 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSuggestionsTableVC.swift; sourceTree = "<group>"; };
+		F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSuggestionCell.swift; sourceTree = "<group>"; };
+		F22BA6322021515E008F5338 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F2B75A972020E29700A0B434 /* TripActionsSupport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripActionsSupport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75A9A2020E29800A0B434 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F2B75A9C2020E29800A0B434 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F2B75A9F2020E29800A0B434 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2B75AA12020E29800A0B434 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2B75AA42020E29800A0B434 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +55,8 @@
 		F2B75AB62020E29800A0B434 /* TripActionsSupportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripActionsSupportUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B75ABA2020E29800A0B434 /* TripActionsSupportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripActionsSupportUITests.swift; sourceTree = "<group>"; };
 		F2B75ABC2020E29800A0B434 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2B75AC82020E5B800A0B434 /* PlacesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesClient.swift; sourceTree = "<group>"; };
+		F2B75ACA2020EA8E00A0B434 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +107,13 @@
 		F2B75A992020E29700A0B434 /* TripActionsSupport */ = {
 			isa = PBXGroup;
 			children = (
+				F22BA6322021515E008F5338 /* Constants.swift */,
 				F2B75A9A2020E29800A0B434 /* AppDelegate.swift */,
-				F2B75A9C2020E29800A0B434 /* ViewController.swift */,
+				F216150E2022413C00F2E9E6 /* MapVC.swift */,
+				F2B75AC82020E5B800A0B434 /* PlacesClient.swift */,
+				F2B75ACA2020EA8E00A0B434 /* Place.swift */,
+				F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */,
+				F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */,
 				F2B75A9E2020E29800A0B434 /* Main.storyboard */,
 				F2B75AA12020E29800A0B434 /* Assets.xcassets */,
 				F2B75AA32020E29800A0B434 /* LaunchScreen.storyboard */,
@@ -259,8 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2B75A9D2020E29800A0B434 /* ViewController.swift in Sources */,
+				F22BA6332021515E008F5338 /* Constants.swift in Sources */,
+				F216150F2022413C00F2E9E6 /* MapVC.swift in Sources */,
+				F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */,
 				F2B75A9B2020E29800A0B434 /* AppDelegate.swift in Sources */,
+				F21615112022618300F2E9E6 /* TextSuggestionsTableVC.swift in Sources */,
+				F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */,
+				F21615132022624B00F2E9E6 /* TextSuggestionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
