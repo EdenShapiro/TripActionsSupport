@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import MapKit
 
 class Place: NSObject {
-    var location: [String: Float]?
+    var location: CLLocation?
     var iconURL: URL?
     var id: String?
     var name: String?
@@ -20,11 +21,20 @@ class Place: NSObject {
     var priceLevel: Int?
     var rating: Float?
     var formattedAddress: String?
+
     
     init(dic: [String: Any?]){
-//        maybe if-let some of these to make sure there are dictionary results for them
+        if let geometry = dic["geometry"] as? [String: Any], let loc = geometry["location"] as? [String: Double]{
+            location = CLLocation(latitude: loc["lat"]!, longitude: loc["lng"]!)
+        }
+//        coordinate = CLLocationCoordinate2D(latitude: !, longitude: !)
+//        "geometry" : {
+//            "location" : {
+//                "lat" : -33.870775,
+//                "lng" : 151.199025
+//            }
+//        },
         
-        location = dic["location"] as? [String: Float]
         if let urlString = dic["icon"] as? String {
             iconURL = URL(string: urlString)
         }

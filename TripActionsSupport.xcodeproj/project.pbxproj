@@ -21,6 +21,7 @@
 		F2B75ABB2020E29800A0B434 /* TripActionsSupportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ABA2020E29800A0B434 /* TripActionsSupportUITests.swift */; };
 		F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75AC82020E5B800A0B434 /* PlacesClient.swift */; };
 		F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ACA2020EA8E00A0B434 /* Place.swift */; };
+		F2E09C392023A60500E079FB /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C382023A60500E079FB /* PlaceAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F2B75ABC2020E29800A0B434 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B75AC82020E5B800A0B434 /* PlacesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesClient.swift; sourceTree = "<group>"; };
 		F2B75ACA2020EA8E00A0B434 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F2E09C382023A60500E079FB /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				F216150E2022413C00F2E9E6 /* MapVC.swift */,
 				F2B75AC82020E5B800A0B434 /* PlacesClient.swift */,
 				F2B75ACA2020EA8E00A0B434 /* Place.swift */,
+				F2E09C382023A60500E079FB /* PlaceAnnotation.swift */,
 				F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */,
 				F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */,
 				F2B75A9E2020E29800A0B434 /* Main.storyboard */,
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2617F3A2022CCC400302280 /* SearchBarsView.swift in Sources */,
+				F2E09C392023A60500E079FB /* PlaceAnnotation.swift in Sources */,
 				F22BA6332021515E008F5338 /* Constants.swift in Sources */,
 				F216150F2022413C00F2E9E6 /* MapVC.swift in Sources */,
 				F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */,

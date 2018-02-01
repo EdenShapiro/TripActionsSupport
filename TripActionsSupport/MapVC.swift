@@ -25,7 +25,16 @@ class MapVC: UIViewController, UISearchBarDelegate {
         
         setUpSearchBarsContainerView()
         setUpSearchBars()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    
     }
+    
+    @objc func hideKeyboard(){
+        view.endEditing(true)
+    }
+    
     
     
     func setUpSearchBarsContainerView(){
@@ -72,18 +81,25 @@ class MapVC: UIViewController, UISearchBarDelegate {
         let placesString = searchBarsContainerView!.placesSearchBar.text
         let locationString = searchBarsContainerView!.locationSearchBar.text
         placeClientInstance.getPlaces(location: locationString, places: placesString, params: nil, success: { (places) in
+            var annotations = [PlaceAnnotation]()
             for p in places {
-                print(p.name)
+                let placeAnnotation = PlaceAnnotation(place: p)
+                annotations.append(placeAnnotation)
+//                self.mapView.addAnnotation(placeAnnotation)
+                print(p.name!)
             }
+            self.mapView.showAnnotations(annotations, animated: true)
+            self.mapView.addAnnotations(annotations)
         }) { (errorString, error) in
             print(errorString)
         }
+        hideKeyboard()
         
-        placeClientInstance.getCoordinatesFromString(locationString: locationString!, success: { (location) in
-            self.centerMapOnLocation(location: location, radius: nil)
-        }) { (errorString, error) in
-            print(errorString)
-        }
+//        placeClientInstance.getCoordinatesFromString(locationString: locationString!, success: { (location) in
+//            self.centerMapOnLocation(location: location, radius: nil)
+//        }) { (errorString, error) in
+//            print(errorString)
+//        }
         
     }
     
