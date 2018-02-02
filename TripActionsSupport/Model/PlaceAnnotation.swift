@@ -17,6 +17,7 @@ class PlaceAnnotation: NSObject,  MKAnnotation {
     var coordinate: CLLocationCoordinate2D
 
     init(place: Place) {
+        self.place = place
         self.coordinate = place.location!.coordinate
         self.title = place.name!
         self.locationName = place.formattedAddress!

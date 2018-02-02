@@ -23,6 +23,11 @@ struct Constants {
         static let pageToken = "pagetoken"
         static let type = "type"
         static let apiKey = "key"
+        static let placeId = "placeid"
+        static let maxWidth = "maxwidth"
+        static let maxHeight = "maxheight"
+        static let photoReference = "photoreference"
+
 
     }
     

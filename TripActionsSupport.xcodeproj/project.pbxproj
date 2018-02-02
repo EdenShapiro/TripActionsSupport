@@ -22,6 +22,13 @@
 		F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75AC82020E5B800A0B434 /* PlacesClient.swift */; };
 		F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ACA2020EA8E00A0B434 /* Place.swift */; };
 		F2E09C392023A60500E079FB /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C382023A60500E079FB /* PlaceAnnotation.swift */; };
+		F2E09C3B2023B26B00E079FB /* PlaceSmallDrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E09C3A2023B26B00E079FB /* PlaceSmallDrawerView.xib */; };
+		F2E09C3F2023B2B800E079FB /* PlaceSmallDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C3E2023B2B800E079FB /* PlaceSmallDrawerView.swift */; };
+		F2E09C452023D07D00E079FB /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C442023D07D00E079FB /* PlaceDetails.swift */; };
+		F2E09C472023F0B200E079FB /* DrawerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C462023F0B200E079FB /* DrawerVC.swift */; };
+		F2E09C492023F12500E079FB /* PlaceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C482023F12500E079FB /* PlaceDetailVC.swift */; };
+		F2E09C4B2023FB4C00E079FB /* PlaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C4A2023FB4C00E079FB /* PlaceDetailsView.swift */; };
+		F2E09C4D2023FB6E00E079FB /* PlaceDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E09C4C2023FB6E00E079FB /* PlaceDetailsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +70,13 @@
 		F2B75AC82020E5B800A0B434 /* PlacesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesClient.swift; sourceTree = "<group>"; };
 		F2B75ACA2020EA8E00A0B434 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F2E09C382023A60500E079FB /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		F2E09C3A2023B26B00E079FB /* PlaceSmallDrawerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSmallDrawerView.xib; sourceTree = "<group>"; };
+		F2E09C3E2023B2B800E079FB /* PlaceSmallDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSmallDrawerView.swift; sourceTree = "<group>"; };
+		F2E09C442023D07D00E079FB /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
+		F2E09C462023F0B200E079FB /* DrawerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerVC.swift; sourceTree = "<group>"; };
+		F2E09C482023F12500E079FB /* PlaceDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailVC.swift; sourceTree = "<group>"; };
+		F2E09C4A2023FB4C00E079FB /* PlaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsView.swift; sourceTree = "<group>"; };
+		F2E09C4C2023FB6E00E079FB /* PlaceDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,17 +127,14 @@
 		F2B75A992020E29700A0B434 /* TripActionsSupport */ = {
 			isa = PBXGroup;
 			children = (
-				F22BA6322021515E008F5338 /* Constants.swift */,
 				F2B75A9A2020E29800A0B434 /* AppDelegate.swift */,
-				F216150E2022413C00F2E9E6 /* MapVC.swift */,
-				F2B75AC82020E5B800A0B434 /* PlacesClient.swift */,
-				F2B75ACA2020EA8E00A0B434 /* Place.swift */,
-				F2E09C382023A60500E079FB /* PlaceAnnotation.swift */,
-				F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */,
+				F22BA6322021515E008F5338 /* Constants.swift */,
+				F2E09C402023B2DA00E079FB /* Views */,
+				F2E09C412023B2F000E079FB /* ViewControllers */,
+				F2E09C432023B31D00E079FB /* Clients */,
+				F2E09C422023B30F00E079FB /* Model */,
 				F21615122022624B00F2E9E6 /* TextSuggestionCell.swift */,
 				F2B75A9E2020E29800A0B434 /* Main.storyboard */,
-				F2617F372022CC8500302280 /* SearchBarsView.xib */,
-				F2617F392022CCC400302280 /* SearchBarsView.swift */,
 				F2B75AA12020E29800A0B434 /* Assets.xcassets */,
 				F2B75AA32020E29800A0B434 /* LaunchScreen.storyboard */,
 				F2B75AA62020E29800A0B434 /* Info.plist */,
@@ -147,6 +158,48 @@
 				F2B75ABC2020E29800A0B434 /* Info.plist */,
 			);
 			path = TripActionsSupportUITests;
+			sourceTree = "<group>";
+		};
+		F2E09C402023B2DA00E079FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2E09C3E2023B2B800E079FB /* PlaceSmallDrawerView.swift */,
+				F2E09C3A2023B26B00E079FB /* PlaceSmallDrawerView.xib */,
+				F2617F392022CCC400302280 /* SearchBarsView.swift */,
+				F2617F372022CC8500302280 /* SearchBarsView.xib */,
+				F2E09C4A2023FB4C00E079FB /* PlaceDetailsView.swift */,
+				F2E09C4C2023FB6E00E079FB /* PlaceDetailsView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2E09C412023B2F000E079FB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F216150E2022413C00F2E9E6 /* MapVC.swift */,
+				F2E09C462023F0B200E079FB /* DrawerVC.swift */,
+				F21615102022618300F2E9E6 /* TextSuggestionsTableVC.swift */,
+				F2E09C482023F12500E079FB /* PlaceDetailVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F2E09C422023B30F00E079FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2B75ACA2020EA8E00A0B434 /* Place.swift */,
+				F2E09C382023A60500E079FB /* PlaceAnnotation.swift */,
+				F2E09C442023D07D00E079FB /* PlaceDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2E09C432023B31D00E079FB /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				F2B75AC82020E5B800A0B434 /* PlacesClient.swift */,
+			);
+			path = Clients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +309,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E09C3B2023B26B00E079FB /* PlaceSmallDrawerView.xib in Resources */,
 				F2617F382022CC8500302280 /* SearchBarsView.xib in Resources */,
 				F2B75AA52020E29800A0B434 /* LaunchScreen.storyboard in Resources */,
 				F2B75AA22020E29800A0B434 /* Assets.xcassets in Resources */,
 				F2B75AA02020E29800A0B434 /* Main.storyboard in Resources */,
+				F2E09C4D2023FB6E00E079FB /* PlaceDetailsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,9 +341,14 @@
 			files = (
 				F2617F3A2022CCC400302280 /* SearchBarsView.swift in Sources */,
 				F2E09C392023A60500E079FB /* PlaceAnnotation.swift in Sources */,
+				F2E09C452023D07D00E079FB /* PlaceDetails.swift in Sources */,
 				F22BA6332021515E008F5338 /* Constants.swift in Sources */,
 				F216150F2022413C00F2E9E6 /* MapVC.swift in Sources */,
+				F2E09C492023F12500E079FB /* PlaceDetailVC.swift in Sources */,
 				F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */,
+				F2E09C4B2023FB4C00E079FB /* PlaceDetailsView.swift in Sources */,
+				F2E09C3F2023B2B800E079FB /* PlaceSmallDrawerView.swift in Sources */,
+				F2E09C472023F0B200E079FB /* DrawerVC.swift in Sources */,
 				F2B75A9B2020E29800A0B434 /* AppDelegate.swift in Sources */,
 				F21615112022618300F2E9E6 /* TextSuggestionsTableVC.swift in Sources */,
 				F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */,

@@ -27,13 +27,17 @@ class SearchBarsView: UIView {
         Bundle.main.loadNibNamed("SearchBarsView", owner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
+        setUpUI()
+
+    }
+    
+    func setUpUI(){
         placesSearchBar.layer.borderWidth = 1
         placesSearchBar.layer.borderColor = UIColor.white.cgColor
         placesSearchBar.autocorrectionType = .yes
         locationSearchBar.layer.borderWidth = 1
         locationSearchBar.layer.borderColor = UIColor.white.cgColor
         locationSearchBar.autocorrectionType = .yes
-
     }
 
 }

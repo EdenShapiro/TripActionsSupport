@@ -15,7 +15,8 @@ class Place: NSObject {
     var id: String?
     var name: String?
     var openNow: Bool = false
-    var photos: [String: Any?]?
+//    var photos: [[String: Any]]?
+    var photoReference: String?
     var placeId: String?
     var types: [String]?
     var priceLevel: Int?
@@ -43,7 +44,21 @@ class Place: NSObject {
         if let openingHours = dic["opening_hours"] as? [String: Bool] {
             openNow = openingHours["open_now"]!
         }
-        photos =  dic["photos"] as? [String: Any?]
+        if let photosArray = dic["photos"] as? [[String: Any]], photosArray.count > 0 {
+            let photoDic = photosArray[0]
+            photoReference = photoDic["photo_reference"] as? String
+        }
+        
+        
+        //        "photos" : [
+        //        {
+        //        "html_attributions" : [],
+        //        "height" : 853,
+        //        "width" : 1280,
+        //        "photo_reference" : "CnRvAAAAwMpdHeWlXl-lH0vp7lez4znKPIWSWvgvZFISdKx45AwJVP1Qp37YOrH7sqHMJ8C-vBDC546decipPHchJhHZL94RcTUfPa1jWzo-rSHaTlbNtjh-N68RkcToUCuY9v2HNpo5mziqkir37WU8FJEqVBIQ4k938TI3e7bf8xq-uwDZcxoUbO_ZJzPxremiQurAYzCTwRhE_V0"
+        //        }
+
+        
         placeId = dic["place_id"] as? String
         types = dic["types"] as? [String]
         priceLevel = dic["price_level"] as? Int
