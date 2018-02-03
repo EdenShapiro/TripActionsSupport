@@ -159,15 +159,16 @@ extension MapVC { //: DrawerDelegate {
         
         // Create smallView
         let drawerSmallView = PlaceSmallDrawerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 169))
-        drawerSmallView.place = placeAnnotation.place
+//        drawerSmallView.place = placeAnnotation.place
         
         // Create bigView
         let drawerBigView = PlaceDetailsView(frame: self.view.frame)
-        drawerBigView.place = placeAnnotation.place
+//        drawerBigView.place = placeAnnotation.place
         drawerBigView.delegate = drawerVC
         
         drawerVC.smallView = drawerSmallView
         drawerVC.bigView = drawerBigView
+        drawerVC.place = placeAnnotation.place
         // Adjust bottomDrawerVC frame and initial position (below the screen)
         drawerVC.view.frame.origin.y = self.view.frame.maxY
         

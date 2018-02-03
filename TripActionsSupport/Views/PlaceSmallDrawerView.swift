@@ -18,6 +18,7 @@ class PlaceSmallDrawerView: UIView {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var dot: UILabel!
+    var phoneNumber: String?
     var place: Place! {
         didSet {
             if let photoRef = place.photoReference {
@@ -40,16 +41,19 @@ class PlaceSmallDrawerView: UIView {
             }
             if let types = place.types, types.count > 0 {
                 // typeLabel.text = types.joined(separator: ", ") // list all types
-                typeLabel.text = types[0].capitalized
+                typeLabel.text = types[0].capitalized.components(separatedBy: CharacterSet(charactersIn: "_")).joined(separator: " ")
             } else {
                 typeLabel.text = ""
             }
         }
     }
-    var phoneNumber: String? {
+    var placeDetails: PlaceDetails? {
         didSet {
-            print(self.phoneNumber!)
-            self.callButton.isHidden = false
+            if let phoneNumber = placeDetails?.strippedPhoneNumber{
+                self.callButton.isHidden = false
+                self.phoneNumber = phoneNumber
+            }
+            
         }
     }
     

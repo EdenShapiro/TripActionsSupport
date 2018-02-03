@@ -15,7 +15,7 @@ class PlaceDetails: NSObject {
     var website: URL?
     var openHours: [String: Any]?
     var photos: [[String: Any]]?
-
+    var strippedPhoneNumber: String?
     
     init(place: Place, dic: [String: Any?]) {
         formattedPhoneNumber = dic["formatted_phone_number"] as? String
@@ -25,6 +25,11 @@ class PlaceDetails: NSObject {
         }
         openHours = dic["opening_hours"] as? [String: Any]
         photos = dic["photos"] as? [[String: Any]]
+        
+        if let phoneNumber = internationalPhoneNumber {
+            let nums = phoneNumber.components(separatedBy: CharacterSet(charactersIn: "+- ()"))
+            strippedPhoneNumber = nums.joined()
+        }
         
 //        if let photosArray = dic["photos"] as? [[String: Any]], photosArray.count > 0 {
 //            let photoDic = photosArray[0]

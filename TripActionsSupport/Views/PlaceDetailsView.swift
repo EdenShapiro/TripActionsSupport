@@ -35,7 +35,7 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
         contentView.frame = bounds
         addSubview(contentView)
         tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.dataSource = self
         
         let panDownToDismissGesture = UIPanGestureRecognizer(target: self, action: #selector(panDownToDismiss))
         panDownToDismissGesture.delegate = self
@@ -47,16 +47,13 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
         
         tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
         tableView.isScrollEnabled = false
-        tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableViewAutomaticDimension
         
         let headerView = DetailsHeaderView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: 294))
         if let name = place.name {
-            headerView.placeNameLabel.text = place.name!
+            headerView.placeNameLabel.text = name
         }
-        
         if let types = place.types, types.count > 0 {
-            headerView.placeTypeLabel.text = types[0].capitalized
+            headerView.placeTypeLabel.text = types[0].components(separatedBy: CharacterSet(charactersIn: "_")).joined(separator: " ").capitalized
         } else {
             headerView.placeTypeLabel.text = ""
         }
@@ -69,9 +66,10 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
             
             tableView.tableHeaderView = headerView
         }
-        
-        headerView.setRadiusWithShadow()
-        
+        headerView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        headerView.layer.shadowRadius = 3.0
+        headerView.layer.shadowOpacity = 0.6
+        headerView.layer.masksToBounds = false
         
         let leadingConstraint = NSLayoutConstraint(item: headerView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
         
@@ -79,16 +77,10 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
         
         let topConstraint = NSLayoutConstraint(item: headerView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
         
-        
         addConstraints([leadingConstraint, trailingConstraint, topConstraint])
-        
         tableView.separatorStyle = .none
-
-        
         tableView.reloadData()
         layoutIfNeeded()
-
-    
     }
     
 
@@ -98,12 +90,10 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: DetailCell!
         
-        if var c = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as? DetailCell {
+        if let c = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as? DetailCell {
             cell = c
-        } else {
-            cell = DetailCell(style: .default, reuseIdentifier: "DetailCell")
         }
-        print("Switch called!")
+
         switch indexPath.row {
         case 0:
             print(indexPath.row)
@@ -122,7 +112,7 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
             if let price = place.priceLevel {
                 cell.infoTextLabel.text = String(repeating: "$", count: price)
             } else {
-                cell.infoTextLabel.text = ""
+                cell.infoTextLabel.text = "$$$"
             }
             configureCellForNormalText(cell: cell)
 
@@ -132,11 +122,15 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
             cell.yelpRatingImageView.isHidden = false
             cell.yelpReviewsTextLabel.isHidden = false
             cell.accessoryType = .none
+            cell.iconImageView.sizeToFit()
         case 4:
             cell.iconImageView.image = #imageLiteral(resourceName: "Membership Card")
             configureCellForNormalText(cell: cell)
-            cell.accessoryType = .detailButton
-            cell.infoTextLabel.text = "AAA, ABA, AARP, CA Farm Bureau"
+            cell.accessoryType = .disclosureIndicator
+            //            cell.iconImageView. // TODO: make outlet to height constraint on cell, and then update its constant to be smaller
+            cell.infoTextLabel.numberOfLines = 1
+            cell.infoTextLabel.lineBreakMode = .byTruncatingTail
+            cell.infoTextLabel.text = "AAA, ABA, AARP, CA Farm Bureau, Cal Alumni, DAV"
             
 //        case 5:
 //            cell.iconImageView.image =
@@ -151,15 +145,19 @@ class PlaceDetailsView: UIView, UITableViewDelegate, UITableViewDataSource, UIGe
         cell.yelpRatingImageView.isHidden = true
         cell.yelpReviewsTextLabel.isHidden = true
         cell.accessoryType = .none
+        cell.infoTextLabel.numberOfLines = 0
+        cell.infoTextLabel.lineBreakMode = .byWordWrapping
+        cell.iconImageView.sizeToFit()
     }
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 5
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20.0
+    }
+    
     
     @objc func panDownToDismiss(sender: UIPanGestureRecognizer){
         let touchPoint = sender.location(in: self.window)

@@ -17,6 +17,13 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate, DrawerDelegate {
     
     var bigView: PlaceDetailsView!
     var smallView: PlaceSmallDrawerView!
+    var place: Place! {
+        didSet {
+            bigView.place = place
+            smallView.place = place
+            getPlaceDetails()
+        }
+    }
     
     lazy var partialViewTopY = UIScreen.main.bounds.height - smallView.frame.height
     let fullViewTopY = UIScreen.main.bounds.minY
@@ -33,9 +40,7 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate, DrawerDelegate {
         setUpConstraints()
         
         setUpGestureRecognizers()
-        
-        preloadDetails()
-        
+                
         self.view.layoutIfNeeded()
     }
     
@@ -65,13 +70,11 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate, DrawerDelegate {
     }
     
     
-    func preloadDetails(){
+    func getPlaceDetails(){
         PlacesClient.sharedInstance.getDetailsForPlace(place: smallView.place, success: { (placeDetails) in
             self.bigView.placeDetails = placeDetails
-            if let formattedPhoneNumber = placeDetails.internationalPhoneNumber {
-                let nums = formattedPhoneNumber.components(separatedBy: CharacterSet(charactersIn: "+- ()"))
-                self.smallView.phoneNumber = nums.joined()
-            }
+            self.smallView.placeDetails = placeDetails
+
         }) { (errString, err) in
             print(errString)
         }
