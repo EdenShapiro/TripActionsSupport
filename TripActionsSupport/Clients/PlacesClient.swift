@@ -6,11 +6,6 @@
 //  Copyright © 2018 Eden. All rights reserved.
 //
 
-//    prefill location with data from last-viewed-client. have search button disabled until location field filled out
-//    don't worry about sorting results
-//    will need to sort by price and rating on the client side
-//    params: ["query": "cheese", "opennow": true, "type": "cafe"]
-
 import Foundation
 import MapKit
 
@@ -165,29 +160,4 @@ class PlacesClient {
     }
     
 }
-
-
-
-
-        
-        //        var params: [String: Any]?
-//        get("textsearch/json?query=", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
-    
-//            let dicts = response as! [[String: Any?]]
-//            let tweets = Tweet.tweetsWithArray(dicts: dicts)
-//            success(tweets)
-//
-//        }, failure: { (task: URLSessionDataTask?, error: Error) in
-//            failure(error)
-//        })
-//
-//    }
-//}
-//
-//https://maps.googleapis.com/maps/api/place/nearbysearch/json
-//?location=-33.8670522,151.1957362
-//&radius=500
-//&types=food
-//&name=harbour
-//&key=
 
