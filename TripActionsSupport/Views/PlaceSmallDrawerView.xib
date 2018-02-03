@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="callButton" destination="Mvg-XC-Q7l" id="q69-di-Ny0"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Z2j-I2-fv6"/>
+                <outlet property="dot" destination="z3H-rH-K0m" id="Nfj-M6-B6K"/>
                 <outlet property="openNowLabel" destination="7bN-PH-da4" id="asC-Y4-MZ2"/>
                 <outlet property="placeImageView" destination="XtT-dR-bN4" id="Tta-8U-Dzb"/>
                 <outlet property="placeNameLabel" destination="O4Y-UV-Z2K" id="scC-Kh-eVG"/>
@@ -35,7 +36,7 @@
                     <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XtT-dR-bN4">
-                    <rect key="frame" x="284" y="8" width="75" height="69"/>
+                    <rect key="frame" x="284" y="12" width="75" height="69"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="69" id="bBU-ro-a9Z"/>
                         <constraint firstAttribute="width" constant="75" id="v1N-o1-vQs"/>
@@ -82,6 +83,9 @@
                     <state key="normal" title="Call">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="callButtonClicked:" destination="-1" eventType="touchUpInside" id="Oxh-1w-GJc"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sheraton Sunnyvale Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Y-UV-Z2K">
                     <rect key="frame" x="16" y="8" width="231.5" height="24"/>
@@ -98,6 +102,7 @@
                 <constraint firstItem="XtT-dR-bN4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rdt-wq-Jbz" secondAttribute="trailing" constant="8" id="7ul-Rk-67Y"/>
                 <constraint firstItem="egV-v6-6kK" firstAttribute="top" secondItem="7bN-PH-da4" secondAttribute="top" id="92O-zF-Bdn"/>
                 <constraint firstItem="Mvg-XC-Q7l" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kd8-4L-CL5" secondAttribute="bottom" constant="8" id="Au3-ap-RnK"/>
+                <constraint firstItem="XtT-dR-bN4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="CI3-O8-LIR"/>
                 <constraint firstItem="8ls-RN-uRt" firstAttribute="leading" secondItem="7bN-PH-da4" secondAttribute="leading" id="D7D-qF-usk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XtT-dR-bN4" secondAttribute="trailing" constant="16" id="Gdt-wr-PlD"/>
                 <constraint firstItem="Rdt-wq-Jbz" firstAttribute="top" secondItem="egV-v6-6kK" secondAttribute="bottom" constant="3" id="Hq2-dG-e8r"/>
@@ -111,11 +116,11 @@
                 <constraint firstItem="egV-v6-6kK" firstAttribute="leading" secondItem="z3H-rH-K0m" secondAttribute="trailing" constant="8" id="dtA-gL-6Zt"/>
                 <constraint firstItem="Rdt-wq-Jbz" firstAttribute="centerY" secondItem="8ls-RN-uRt" secondAttribute="centerY" id="kTY-LA-khe"/>
                 <constraint firstItem="O4Y-UV-Z2K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="pBf-oS-qsv"/>
+                <constraint firstItem="8ls-RN-uRt" firstAttribute="top" secondItem="7bN-PH-da4" secondAttribute="bottom" constant="6" id="pbL-Zn-ZSd"/>
                 <constraint firstItem="XtT-dR-bN4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="egV-v6-6kK" secondAttribute="trailing" constant="8" id="plS-eI-awd"/>
                 <constraint firstItem="XtT-dR-bN4" firstAttribute="trailing" secondItem="Mvg-XC-Q7l" secondAttribute="trailing" id="tpP-Hj-zIC"/>
                 <constraint firstItem="z3H-rH-K0m" firstAttribute="top" secondItem="7bN-PH-da4" secondAttribute="top" id="wEj-N3-nNr"/>
                 <constraint firstItem="7bN-PH-da4" firstAttribute="leading" secondItem="O4Y-UV-Z2K" secondAttribute="leading" id="wvU-Hc-tqV"/>
-                <constraint firstItem="XtT-dR-bN4" firstAttribute="top" secondItem="O4Y-UV-Z2K" secondAttribute="top" id="y7L-D0-IIg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

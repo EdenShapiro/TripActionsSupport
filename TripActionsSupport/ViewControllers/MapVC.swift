@@ -22,7 +22,7 @@ class MapVC: UIViewController, UISearchBarDelegate {
         
         // Set up map to initial view of United States
         let startingLocation = CLLocation(latitude: 39.50, longitude: -98.35)
-        let startingRegionRadius: CLLocationDistance = 900000
+        let startingRegionRadius: CLLocationDistance = 5000000
         centerMapOnLocation(location: startingLocation, radius: startingRegionRadius)
         
         setUpSearchBarsContainerView()
@@ -119,15 +119,29 @@ class MapVC: UIViewController, UISearchBarDelegate {
 }
 
 extension MapVC: MKMapViewDelegate {
+    
+//    TODO:
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        var annotationView: MKAnnotationView!
+//        if let ann = mapView.dequeueReusableAnnotationView(withIdentifier: "Annotation") as? MKAnnotationView {
+//            annotationView = ann
+//            annotationView.tintColor = UIColor.TripActionsColors.orange
+//        } else {
+//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "Annotation")
+//            annotationView.tintColor = UIColor.TripActionsColors.orange
+//            annotationView.image = #imageLiteral(resourceName: "Small orange pin")
+//        }
+//        return annotationView
+//    }
+    
+    
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         let placeAnnotation = view.annotation as! PlaceAnnotation
         setUpBottomDrawer(placeAnnotation: placeAnnotation)
-        print("debug statment!!!!!")
         print(placeAnnotation.place.name)
-        
-
-
+//        view.image = #imageLiteral(resourceName: "Big pin")
     }
     
 }
@@ -137,33 +151,20 @@ extension MapVC: MKMapViewDelegate {
 
 extension MapVC { //: DrawerDelegate {
     
-    // fetch photo
-    // fetch details
-    // open drawer
-    
-    func fetchPhotoForBottomDrawer(){
-        //fetch photo from Place object's photoreference
-//        if let reference = annotation.place.photoReference {
-//            placeClientInstance.getPhotoForReference(photoReference: reference, maxWidth: <#T##Int#>, maxHeight: <#T##Int#>, success: <#T##(URL) -> ()#>, failure: <#T##(String, Error?) -> ()#>)
-//        }
-        
-    }
-    
     func setUpBottomDrawer(placeAnnotation: PlaceAnnotation){
 
         removeChildVC()
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let drawerVC = storyboard.instantiateViewController(withIdentifier: "DrawerVC") as! DrawerVC
+
         let drawerVC = DrawerVC()
         
         // Create smallView
-        let drawerSmallView = PlaceSmallDrawerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 142))
+        let drawerSmallView = PlaceSmallDrawerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 169))
         drawerSmallView.place = placeAnnotation.place
         
         // Create bigView
         let drawerBigView = PlaceDetailsView(frame: self.view.frame)
         drawerBigView.place = placeAnnotation.place
+        drawerBigView.delegate = drawerVC
         
         drawerVC.smallView = drawerSmallView
         drawerVC.bigView = drawerBigView
@@ -174,7 +175,6 @@ extension MapVC { //: DrawerDelegate {
         addChildViewController(drawerVC)
         view.addSubview(drawerVC.view)
         UIApplication.shared.keyWindow?.insertSubview(drawerVC.view, aboveSubview: self.view)
-//        UIApplication.shared.keyWindow!.insertSubview(drawerVC.view, aboveSubview: tabBarController!.tabBar)
 
     }
     
@@ -206,14 +206,6 @@ extension MapVC { //: DrawerDelegate {
     
 }
 
-//
-//    func mapPinButtonClicked(roomGuid: String) {
-//
-//        }
-//    }
-//}
-
-
 extension UIView {
     
     func setRadiusWithShadow(_ radius: CGFloat? = nil) {
@@ -227,39 +219,26 @@ extension UIView {
     
 }
 
+//extension MKPinAnnotationView {
+//    class func pinColor() -> UIColor {
+//        return UIColor.TripActionsColors.orange
+//    }
+//}
 
-//        bottomDrawerVC.addChildViewController(chatroomDetailVC)
-
-//        let drawerVC = DrawerVC()
-
-//        if let chatRoom = ChatSpotClient.chatrooms[roomGuid] {
-//            // create small view
-//            let chatroomCardView = ChatroomCardView(frame: CGRect(x: 0, y: 0, width: 375, height: 139))
-//            chatroomCardView.chatRoom = chatRoom
-
-// create fullsize view
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let chatroomDetailVC = storyboard.instantiateViewController(withIdentifier: "ChatRoomDetailVC") as! ChatRoomDetailVC
-//            chatroomDetailVC.chatroom = chatRoom
-
-//            bottomDrawerVC.mainFullVC = chatroomDetailVC
-//            bottomDrawerVC.smallDrawerView = chatroomCardView
-//            bottomDrawerVC.addChildViewController(chatroomDetailVC)
-
-//            // Adjust bottomDrawerVC frame and initial position (below the screen)
-//            bottomDrawerVC.view.frame.origin.y = self.view.frame.maxY
-
-
-//            // add bottomDrawerVC as a child view
-//            addChildViewController(bottomDrawerVC)
-//            view.addSubview(bottomDrawerVC.view)
-//            UIApplication.shared.keyWindow!.insertSubview(bottomDrawerVC.view, aboveSubview: tabBarController!.tabBar)
-
-
-//        placeClientInstance.getCoordinatesFromString(locationString: locationString!, success: { (location) in
-//            self.centerMapOnLocation(location: location, radius: nil)
-//        }) { (errorString, error) in
-//            print(errorString)
-//        }
-
-
+extension UIColor {
+    
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+    
+    struct TripActionsColors {
+        static let orange = UIColor(netHex: 0xFF671B)
+    }
+}

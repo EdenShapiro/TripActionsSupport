@@ -29,6 +29,10 @@
 		F2E09C492023F12500E079FB /* PlaceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C482023F12500E079FB /* PlaceDetailVC.swift */; };
 		F2E09C4B2023FB4C00E079FB /* PlaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C4A2023FB4C00E079FB /* PlaceDetailsView.swift */; };
 		F2E09C4D2023FB6E00E079FB /* PlaceDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E09C4C2023FB6E00E079FB /* PlaceDetailsView.xib */; };
+		F2EB454F2024FBA700D32C11 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2EB454E2024FBA700D32C11 /* DetailCell.xib */; };
+		F2EB45512024FBC600D32C11 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB45502024FBC600D32C11 /* DetailCell.swift */; };
+		F2EB455320250DEF00D32C11 /* DetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2EB455220250DEF00D32C11 /* DetailsHeaderView.xib */; };
+		F2EB455520250E0900D32C11 /* DetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EB455420250E0900D32C11 /* DetailsHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		F2E09C482023F12500E079FB /* PlaceDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailVC.swift; sourceTree = "<group>"; };
 		F2E09C4A2023FB4C00E079FB /* PlaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsView.swift; sourceTree = "<group>"; };
 		F2E09C4C2023FB6E00E079FB /* PlaceDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailsView.xib; sourceTree = "<group>"; };
+		F2EB454E2024FBA700D32C11 /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
+		F2EB45502024FBC600D32C11 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		F2EB455220250DEF00D32C11 /* DetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsHeaderView.xib; sourceTree = "<group>"; };
+		F2EB455420250E0900D32C11 /* DetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,11 +172,15 @@
 			isa = PBXGroup;
 			children = (
 				F2E09C3E2023B2B800E079FB /* PlaceSmallDrawerView.swift */,
+				F2EB454E2024FBA700D32C11 /* DetailCell.xib */,
+				F2EB45502024FBC600D32C11 /* DetailCell.swift */,
 				F2E09C3A2023B26B00E079FB /* PlaceSmallDrawerView.xib */,
 				F2617F392022CCC400302280 /* SearchBarsView.swift */,
 				F2617F372022CC8500302280 /* SearchBarsView.xib */,
 				F2E09C4A2023FB4C00E079FB /* PlaceDetailsView.swift */,
 				F2E09C4C2023FB6E00E079FB /* PlaceDetailsView.xib */,
+				F2EB455420250E0900D32C11 /* DetailsHeaderView.swift */,
+				F2EB455220250DEF00D32C11 /* DetailsHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,10 +321,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2EB455320250DEF00D32C11 /* DetailsHeaderView.xib in Resources */,
 				F2E09C3B2023B26B00E079FB /* PlaceSmallDrawerView.xib in Resources */,
 				F2617F382022CC8500302280 /* SearchBarsView.xib in Resources */,
 				F2B75AA52020E29800A0B434 /* LaunchScreen.storyboard in Resources */,
 				F2B75AA22020E29800A0B434 /* Assets.xcassets in Resources */,
+				F2EB454F2024FBA700D32C11 /* DetailCell.xib in Resources */,
 				F2B75AA02020E29800A0B434 /* Main.storyboard in Resources */,
 				F2E09C4D2023FB6E00E079FB /* PlaceDetailsView.xib in Resources */,
 			);
@@ -344,12 +358,14 @@
 				F2E09C452023D07D00E079FB /* PlaceDetails.swift in Sources */,
 				F22BA6332021515E008F5338 /* Constants.swift in Sources */,
 				F216150F2022413C00F2E9E6 /* MapVC.swift in Sources */,
+				F2EB45512024FBC600D32C11 /* DetailCell.swift in Sources */,
 				F2E09C492023F12500E079FB /* PlaceDetailVC.swift in Sources */,
 				F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */,
 				F2E09C4B2023FB4C00E079FB /* PlaceDetailsView.swift in Sources */,
 				F2E09C3F2023B2B800E079FB /* PlaceSmallDrawerView.swift in Sources */,
 				F2E09C472023F0B200E079FB /* DrawerVC.swift in Sources */,
 				F2B75A9B2020E29800A0B434 /* AppDelegate.swift in Sources */,
+				F2EB455520250E0900D32C11 /* DetailsHeaderView.swift in Sources */,
 				F21615112022618300F2E9E6 /* TextSuggestionsTableVC.swift in Sources */,
 				F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */,
 				F21615132022624B00F2E9E6 /* TextSuggestionCell.swift in Sources */,

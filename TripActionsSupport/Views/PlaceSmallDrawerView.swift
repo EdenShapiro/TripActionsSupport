@@ -17,24 +17,42 @@ class PlaceSmallDrawerView: UIView {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var callButton: UIButton!
-
+    @IBOutlet weak var dot: UILabel!
     var place: Place! {
         didSet {
-            placeNameLabel.text = place.name
             if let photoRef = place.photoReference {
                 PlacesClient.sharedInstance.getPhotoForReference(photoReference: photoRef, maxWidth: Int(placeImageView.frame.width), maxHeight: Int(placeImageView.frame.height), success: { (image) in
                     self.placeImageView.image = image
+                    
                 }, failure: { (errorString, error) in
                     print(errorString)
                 })
             }
-            openNowLabel.text = place.openNow ? "Open now" : "Now closed"
-            priceLabel.text = "\(place.priceLevel)"
-//            for type in place.types
-//
             
+            placeNameLabel.text = place.name!
+            openNowLabel.text = place.openNow ? "Open now" : "Now closed"
+            if let price = place.priceLevel {
+                priceLabel.text = String(repeating: "$", count: price)
+                    dot.isHidden = false
+            } else {
+                priceLabel.text = ""
+                dot.isHidden = true
+            }
+            if let types = place.types, types.count > 0 {
+                // typeLabel.text = types.joined(separator: ", ") // list all types
+                typeLabel.text = types[0].capitalized
+            } else {
+                typeLabel.text = ""
+            }
         }
     }
+    var phoneNumber: String? {
+        didSet {
+            print(self.phoneNumber!)
+            self.callButton.isHidden = false
+        }
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -55,5 +73,19 @@ class PlaceSmallDrawerView: UIView {
     
     func setUpUI(){
         callButton.layer.cornerRadius = 10
+        placeImageView.layer.cornerRadius = 4
+        placeImageView.layer.masksToBounds = true
     }
+    
+    @IBAction func callButtonClicked(_ sender: Any) {
+        if let number = phoneNumber {
+            let url = URL(string: "telprompt://\(number)")!
+            UIApplication.shared.open(url, options: [:], completionHandler: { (true) in
+                print("successfully opened phone app")
+            })
+        }
+    }
+    
+    
+    
 }

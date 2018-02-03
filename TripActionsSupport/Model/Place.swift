@@ -15,7 +15,6 @@ class Place: NSObject {
     var id: String?
     var name: String?
     var openNow: Bool = false
-//    var photos: [[String: Any]]?
     var photoReference: String?
     var placeId: String?
     var types: [String]?
@@ -28,36 +27,19 @@ class Place: NSObject {
         if let geometry = dic["geometry"] as? [String: Any], let loc = geometry["location"] as? [String: Double]{
             location = CLLocation(latitude: loc["lat"]!, longitude: loc["lng"]!)
         }
-//        coordinate = CLLocationCoordinate2D(latitude: !, longitude: !)
-//        "geometry" : {
-//            "location" : {
-//                "lat" : -33.870775,
-//                "lng" : 151.199025
-//            }
-//        },
         
         if let urlString = dic["icon"] as? String {
             iconURL = URL(string: urlString)
         }
         id = dic["id"] as? String
         name = dic["name"] as? String
-        if let openingHours = dic["opening_hours"] as? [String: Bool] {
-            openNow = openingHours["open_now"]!
+        if let openingHours = dic["opening_hours"] as? [String: Any] {
+            openNow = openingHours["open_now"] as! Bool
         }
         if let photosArray = dic["photos"] as? [[String: Any]], photosArray.count > 0 {
             let photoDic = photosArray[0]
             photoReference = photoDic["photo_reference"] as? String
         }
-        
-        
-        //        "photos" : [
-        //        {
-        //        "html_attributions" : [],
-        //        "height" : 853,
-        //        "width" : 1280,
-        //        "photo_reference" : "CnRvAAAAwMpdHeWlXl-lH0vp7lez4znKPIWSWvgvZFISdKx45AwJVP1Qp37YOrH7sqHMJ8C-vBDC546decipPHchJhHZL94RcTUfPa1jWzo-rSHaTlbNtjh-N68RkcToUCuY9v2HNpo5mziqkir37WU8FJEqVBIQ4k938TI3e7bf8xq-uwDZcxoUbO_ZJzPxremiQurAYzCTwRhE_V0"
-        //        }
-
         
         placeId = dic["place_id"] as? String
         types = dic["types"] as? [String]

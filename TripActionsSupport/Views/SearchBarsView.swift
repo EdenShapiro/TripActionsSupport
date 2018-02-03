@@ -35,9 +35,12 @@ class SearchBarsView: UIView {
         placesSearchBar.layer.borderWidth = 1
         placesSearchBar.layer.borderColor = UIColor.white.cgColor
         placesSearchBar.autocorrectionType = .yes
+//        placesSearchBar.setImage( #imageLiteral(resourceName: "Search Icon"), for: .search, state: .normal)
         locationSearchBar.layer.borderWidth = 1
         locationSearchBar.layer.borderColor = UIColor.white.cgColor
         locationSearchBar.autocorrectionType = .yes
+        locationSearchBar.setImage( #imageLiteral(resourceName: "Small gray pin"), for: .search, state: .normal)
+
     }
 
 }

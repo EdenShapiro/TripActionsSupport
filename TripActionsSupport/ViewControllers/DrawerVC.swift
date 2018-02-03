@@ -8,33 +8,53 @@
 
 import UIKit
 
-class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
+@objc protocol DrawerDelegate {
+    func openDrawer()
+    func closeDrawer(completion: (() -> Void)?)
+}
+
+class DrawerVC: UIViewController, UIGestureRecognizerDelegate, DrawerDelegate {
     
     var bigView: PlaceDetailsView!
     var smallView: PlaceSmallDrawerView!
     
-    lazy var partialViewTopY = self.view.frame.height - 120 //smallView.frame.height //120// maybe go lower if there is still a gap
+    lazy var partialViewTopY = UIScreen.main.bounds.height - smallView.frame.height
     let fullViewTopY = UIScreen.main.bounds.minY
     var isOpen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallView.layer.shadowOffset = CGSize(width: 0, height: -3.0)
-        smallView.layer.shadowRadius = 3.0
-        smallView.layer.shadowOpacity = 0.6
-        smallView.layer.masksToBounds = false
+        setUpUI()
         
         view.addSubview(bigView)
         view.addSubview(smallView)
         
+        setUpConstraints()
+        
+        setUpGestureRecognizers()
+        
+        preloadDetails()
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    func setUpUI(){
+        smallView.layer.shadowOffset = CGSize(width: 0, height: -3.0)
+        smallView.layer.shadowRadius = 3.0
+        smallView.layer.shadowOpacity = 0.6
+        smallView.layer.masksToBounds = false
+    }
+    
+    func setUpConstraints(){
         smallView.translatesAutoresizingMaskIntoConstraints = false
         let leadingConstraint = NSLayoutConstraint(item: smallView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
         let trailingConstraint = NSLayoutConstraint(item: smallView, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
         
         view.addConstraints([leadingConstraint, trailingConstraint])
-        
-        
+    }
+    
+    func setUpGestureRecognizers(){
         let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(handlePan))
         panGesture.delegate = self
         view.addGestureRecognizer(panGesture)
@@ -42,8 +62,19 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         tapGesture.delegate = self
         self.smallView.addGestureRecognizer(tapGesture)
-        
-        self.view.layoutIfNeeded()
+    }
+    
+    
+    func preloadDetails(){
+        PlacesClient.sharedInstance.getDetailsForPlace(place: smallView.place, success: { (placeDetails) in
+            self.bigView.placeDetails = placeDetails
+            if let formattedPhoneNumber = placeDetails.internationalPhoneNumber {
+                let nums = formattedPhoneNumber.components(separatedBy: CharacterSet(charactersIn: "+- ()"))
+                self.smallView.phoneNumber = nums.joined()
+            }
+        }) { (errString, err) in
+            print(errString)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,10 +123,6 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
             print("removing children")
         }
     }
-    
-//    func updateJoinButton(){
-//        self.smallView.updateJoinButtonView()
-//    }
     
     func openDrawer(){
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
@@ -165,7 +192,6 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
             self.navigationController?.navigationBar.isUserInteractionEnabled = false
         } else {
             self.navigationController?.navigationBar.isUserInteractionEnabled = true
-            
         }
         self.view.layoutIfNeeded()
     }
@@ -181,8 +207,14 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if touch.view is UIButton {
             print("the view that was tapped was recognized as a button")
-            return false
+            if let panGesture = gestureRecognizer as? UIPanGestureRecognizer {
+                return true
+            } else {
+                return false
+            }
+            
         }
+
         //        TODO: fix bug that lets you drag the detail view up and expose the map
         //        if let panGesture = gestureRecognizer as? UIPanGestureRecognizer {
         //            //            let gesture = (gestureRecognizer as! UIPanGestureRecognizer)
@@ -200,9 +232,10 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
     //    when drawer is closed, tableviewscrolling should be off, and drawer pangesture should be on
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    
+        
         if let panGesture = gestureRecognizer as? UIPanGestureRecognizer {
-
+//            if otherGesture = otherGestureRecognizer as?
+            
             let direction = panGesture.velocity(in: view).y
 
             if self.isOpen {
@@ -212,8 +245,8 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
                     bigView.tableView.isScrollEnabled = false
                 } else {
                     print("TABLEVIEW SCROLL IS ENABLED. bigView.tableView.contentOffset.y: \(bigView.tableView.contentOffset.y)")
-
-                    bigView.tableView.isScrollEnabled = true
+                    //CHANGE LATER
+                    bigView.tableView.isScrollEnabled = false
                 }
                 // need to check for scrolling down and bottom of tableview
             } else {
@@ -222,26 +255,9 @@ class DrawerVC: UIViewController, UIGestureRecognizerDelegate {
 
         }
 
-        return true
+        return false
 
     }
     
 }
 
-//extension DrawerVC: UITableViewDelegate, UITableViewDataSource {
-//    
-//    // MARK: - Table view data source
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return UITableViewCell()
-//    }
-//    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//}
-//    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

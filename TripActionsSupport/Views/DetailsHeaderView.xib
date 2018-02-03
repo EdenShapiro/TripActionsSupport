@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsHeaderView" customModule="TripActionsSupport" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="yxV-Ub-Spz"/>
+                <outlet property="placeHeaderImageView" destination="qXa-mi-5N2" id="3rh-CB-iy8"/>
+                <outlet property="placeNameLabel" destination="C14-IH-EV8" id="XQD-jf-01E"/>
+                <outlet property="placeTypeLabel" destination="Vlo-3S-Woj" id="QpA-tV-x14"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qXa-mi-5N2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="215" id="maJ-O0-rI3"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Car Rental Agency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlo-3S-Woj">
+                    <rect key="frame" x="16" y="261" width="142" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Hertz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C14-IH-EV8">
+                    <rect key="frame" x="16" y="227" width="55.5" height="26.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="C14-IH-EV8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3Kq-NX-WbK"/>
+                <constraint firstItem="qXa-mi-5N2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="3dE-x0-7N0"/>
+                <constraint firstItem="qXa-mi-5N2" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="74n-U0-1Fw"/>
+                <constraint firstItem="qXa-mi-5N2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8yg-nz-4pM"/>
+                <constraint firstItem="C14-IH-EV8" firstAttribute="top" secondItem="qXa-mi-5N2" secondAttribute="bottom" constant="12" id="JVk-YH-xSj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="C14-IH-EV8" secondAttribute="trailing" constant="16" id="elH-iU-Elb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vlo-3S-Woj" secondAttribute="bottom" constant="12" id="i9w-Tr-sLK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qXa-mi-5N2" secondAttribute="bottom" constant="79" id="kyf-WO-gbe"/>
+                <constraint firstItem="Vlo-3S-Woj" firstAttribute="top" secondItem="C14-IH-EV8" secondAttribute="bottom" constant="8" id="rgv-ab-NCv"/>
+                <constraint firstItem="Vlo-3S-Woj" firstAttribute="leading" secondItem="C14-IH-EV8" secondAttribute="leading" id="uyv-Dg-gQx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="46.5" y="-117.5"/>
+        </view>
+    </objects>
+</document>
