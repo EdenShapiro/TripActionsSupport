@@ -21,6 +21,7 @@
 		F2B75ABB2020E29800A0B434 /* TripActionsSupportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ABA2020E29800A0B434 /* TripActionsSupportUITests.swift */; };
 		F2B75AC92020E5B800A0B434 /* PlacesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75AC82020E5B800A0B434 /* PlacesClient.swift */; };
 		F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B75ACA2020EA8E00A0B434 /* Place.swift */; };
+		F2BC50892044D81600046E66 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BC50882044D81600046E66 /* TestCell.swift */; };
 		F2E09C392023A60500E079FB /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C382023A60500E079FB /* PlaceAnnotation.swift */; };
 		F2E09C3B2023B26B00E079FB /* PlaceSmallDrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E09C3A2023B26B00E079FB /* PlaceSmallDrawerView.xib */; };
 		F2E09C3F2023B2B800E079FB /* PlaceSmallDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E09C3E2023B2B800E079FB /* PlaceSmallDrawerView.swift */; };
@@ -73,6 +74,7 @@
 		F2B75ABC2020E29800A0B434 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2B75AC82020E5B800A0B434 /* PlacesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesClient.swift; sourceTree = "<group>"; };
 		F2B75ACA2020EA8E00A0B434 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F2BC50882044D81600046E66 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		F2E09C382023A60500E079FB /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		F2E09C3A2023B26B00E079FB /* PlaceSmallDrawerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSmallDrawerView.xib; sourceTree = "<group>"; };
 		F2E09C3E2023B2B800E079FB /* PlaceSmallDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSmallDrawerView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				F2B75A9A2020E29800A0B434 /* AppDelegate.swift */,
+				F2BC50882044D81600046E66 /* TestCell.swift */,
 				F22BA6322021515E008F5338 /* Constants.swift */,
 				F2E09C402023B2DA00E079FB /* Views */,
 				F2E09C412023B2F000E079FB /* ViewControllers */,
@@ -369,6 +372,7 @@
 				F21615112022618300F2E9E6 /* TextSuggestionsTableVC.swift in Sources */,
 				F2B75ACB2020EA8E00A0B434 /* Place.swift in Sources */,
 				F21615132022624B00F2E9E6 /* TextSuggestionCell.swift in Sources */,
+				F2BC50892044D81600046E66 /* TestCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

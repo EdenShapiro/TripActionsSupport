@@ -14,13 +14,67 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapVC" customModule="TripActionsSupport" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="HGy-tf-yV0">
+                    <view key="view" contentMode="scaleToFill" id="mKC-GC-bTG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HGy-tf-yV0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DKo-SL-3Hz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" textLabel="U2K-I9-Vzc" detailTextLabel="OY8-T2-0ts" style="IBUITableViewCellStyleSubtitle" id="VzX-L6-YjJ" customClass="TestCell" customModule="TripActionsSupport" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VzX-L6-YjJ" id="26f-BH-FsO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U2K-I9-Vzc">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OY8-T2-0ts">
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="testSubtitle" destination="OY8-T2-0ts" id="xzG-r1-1Lp"/>
+                                            <outlet property="testTitle" destination="U2K-I9-Vzc" id="LmZ-JP-L1p"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DKo-SL-3Hz" firstAttribute="top" secondItem="mKC-GC-bTG" secondAttribute="top" id="13k-c3-UW2"/>
+                            <constraint firstItem="DKo-SL-3Hz" firstAttribute="leading" secondItem="mKC-GC-bTG" secondAttribute="leading" id="86s-0k-6rZ"/>
+                            <constraint firstItem="HGy-tf-yV0" firstAttribute="leading" secondItem="t2X-hD-vDW" secondAttribute="leading" id="8SU-hv-yiV"/>
+                            <constraint firstItem="HGy-tf-yV0" firstAttribute="trailing" secondItem="t2X-hD-vDW" secondAttribute="trailing" id="Fjr-bm-OwU"/>
+                            <constraint firstAttribute="bottom" secondItem="DKo-SL-3Hz" secondAttribute="bottom" id="K1D-Sw-Wli"/>
+                            <constraint firstItem="HGy-tf-yV0" firstAttribute="top" secondItem="mKC-GC-bTG" secondAttribute="top" id="UtN-M4-ri9"/>
+                            <constraint firstAttribute="trailing" secondItem="DKo-SL-3Hz" secondAttribute="trailing" id="ZUP-hz-UvJ"/>
+                            <constraint firstItem="HGy-tf-yV0" firstAttribute="bottom" secondItem="t2X-hD-vDW" secondAttribute="bottom" id="wMt-26-34E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="t2X-hD-vDW"/>
+                    </view>
                     <navigationItem key="navigationItem" id="Lmj-sv-YBS"/>
                     <connections>
                         <outlet property="mapView" destination="HGy-tf-yV0" id="eJO-qd-kYI"/>
+                        <outlet property="tableView" destination="DKo-SL-3Hz" id="rBW-aW-Kdb"/>
+                        <outlet property="tableViewBottomConstraint" destination="K1D-Sw-Wli" id="cz6-kX-Ry1"/>
+                        <outlet property="tableViewTopConstraint" destination="13k-c3-UW2" id="ixO-yF-gLV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
